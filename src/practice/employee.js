@@ -4,7 +4,7 @@ import axios from 'axios'
 
 function Datafetching() {
     const [posts, setposts] = useState([])
-    // const [employee,setemployee]=useState([])
+    // const [item, setemployee] = useState({})
     const [id,setid]=useState(1)
     useEffect(() => {
         axios
@@ -17,7 +17,7 @@ function Datafetching() {
                 console.log(err)
             })
     }, [id])
-    
+
     // const change = () => {
     //     axios
     //         .get('https://reqres.in/api/users?page=2')
@@ -31,17 +31,19 @@ function Datafetching() {
     // }
 
     console.log(posts)
+
+
+
     // const employee = posts.data;
     // console.log(employee)
     return (
         <div>
-        {/* <Datafetching2 employeeset={posts}/> */}
+            {/* <Datafetching2 employeeset={posts}/> */}
             {/* <button onClick={change}>Load</button> */}
-              <h1>Page</h1>
+            <h1>Page</h1>
             <input type="text" value={id} onChange={e => setid(e.target.value)} />
 
             {posts.map((item) => (
-
                 <div key={item.id}>
                     <div>
                         <img src={item.avatar} alt={item.avatar} />
@@ -52,6 +54,7 @@ function Datafetching() {
                         <p>Email : {item.email}</p>
                     </div>
                 </div>
+
             ))}
         </div>
 

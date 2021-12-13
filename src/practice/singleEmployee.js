@@ -1,67 +1,70 @@
-// import React, { useState, useEffect } from "react";
-// import axios from 'axios'
-// //  import Datafetching2 from "./chngeemployes";
+import React, { useState, useEffect } from "react";
+import axios from 'axios'
+//  import Datafetching2 from "./chngeemployes";
 
-// function Datafetching() {
-//     const [posts, setposts] = useState([])
-//     // const [id, setid] = useState(1)
-//     const [employeeid, setemployeeid] = useState(1)
-//     const [singlepost,setsinglepost]=useState({})
-//     // const [employee,setemployee]=useState([])
-//     // const [id,setid]=useState(1)
-//     useEffect(() => {
-//         axios
-//             .get(`https://reqres.in/api/users?page=1`)
-//             .then(res1 => {
-//                 // console.log(res1)
-//                 setposts(res1.data.data)
-//                 setsinglepost(posts[{employeeid}])
-//             })
-//             .catch(err => {
-//                 console.log(err)
-//             })
+function Datafetching() {
+    const [posts, setposts] = useState({})
+    // let id=0;
+    const [id, setid] = useState(1)
 
-//     }, [employeeid])
-// console.log(singlepost)
-//     // const change = () => {
-//     //     axios
-//     //         .get('https://reqres.in/api/users?page=2')
-//     //         .then(res1 => {
-//     //             console.log(res1)
-//     //             setposts(posts=> res1.data.data)
-//     //         })
-//     //         .catch(err => {
-//     //             console.log(err)
-//     //         })
-//     // }
+    useEffect(() => {
+        axios
+            .get(`https://reqres.in/api/users?page=1`)
+            .then(res1 => {
+                // console.log(res1)
+                setposts(res1.data.data)
+                // setsinglepost(posts[{employeeid}])
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
-//     // console.log('First value', posts[1])
-//     // const employee = posts.data;
-//     // console.log(employee)
-//     return (
+    }, [])
+    console.log(posts[1])
 
-//         <div>
-//             <h1>Page</h1>
-//             <input type="text" value={employeeid} onChange={e => setemployeeid(e.target.value)} />
+    function changeid() {
+        if (document.getElementById("valueid").value) {
+            if (document.getElementById("valueid").value < 6)
+                setid(document.getElementById("valueid").value)
+        }
 
-//             {/* <Datafetching2 employeeset={posts}/> */}
-//             {/* <button onClick={change}>Load</button> */}
-//             {/* {posts.map((item) => (
+    }
+    return (
+
+        <div>
+            <h1>Page</h1>
+            <input type="text" id='valueid' onChange={changeid} />
+
+            <h1>{id}</h1>
+            <div>
+                <img src={posts[id].avatar} alt={posts[id].avatar} />
+            </div>
+            <h1>{posts[id].email}</h1>
+
+            <div>
+                <h1>{posts[1].first_name}</h1>
+                <p>Email : {posts[1].email}</p>
+            </div>
+            {/* <input type="text" id='valueid' value={employeeid} onChange={e => setemployeeid(e.target.value)} /> */}
+            {/*              
+                    <div>
+                        <h1>{posts[1].first_name}</h1>
+                        <p>Email : {posts[1].email}</p>
+                    </div> */}
+
+
+            {/* <Datafetching2 employeeset={posts}/> */}
+            {/* <button onClick={change}>Load</button> */}
+            {/* {posts.map((item) => (
 
                 
-//             ))} */}
-//             {/* <div key={singlepost.id}>
-//                     <div>
-//                         <img src={singlepost.avatar} alt={singlepost.avatar} />
-//                     </div>
+            ))} */}
+            {/* <div key={id}>
+                    
+<h1>{posts.email}</h1>
+                </div>   */}
+        </div>
 
-//                     <div>
-//                         <h1>{singlepost.first_name}</h1>
-//                         <p>Email : {singlepost.email}</p>
-//                     </div>
-//                 </div> */}
-//         </div>
-
-//     )
-// }
-// export default Datafetching
+    )
+}
+export default Datafetching
