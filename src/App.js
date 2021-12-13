@@ -1,7 +1,7 @@
 
 import './App.css';
-import Hoo from './practice/employee'
-
+// import Hoo from './practice/employee'
+import Hoo from './practice/hooksfetch'
 
 function App() {
   return (

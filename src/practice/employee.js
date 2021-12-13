@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
-
+ import Datafetching2 from "./chngeemployes";
 
 function Datafetching() {
     const [posts, setposts] = useState([])
@@ -17,24 +17,26 @@ function Datafetching() {
                 console.log(err)
             })
     }, [])
-    const change = () => {
-        axios
-            .get('https://reqres.in/api/users?page=2')
-            .then(res1 => {
-                console.log(res1)
-                setposts(posts=> res1.data.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
+    
+    // const change = () => {
+    //     axios
+    //         .get('https://reqres.in/api/users?page=2')
+    //         .then(res1 => {
+    //             console.log(res1)
+    //             setposts(posts=> res1.data.data)
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    // }
 
     console.log(posts)
     // const employee = posts.data;
     // console.log(employee)
     return (
         <div>
-            <button onClick={change}>Load</button>
+        <Datafetching2 employeeset={posts}/>
+            {/* <button onClick={change}>Load</button> */}
             {posts.map((item) => (
 
                 <div key={item.id}>
