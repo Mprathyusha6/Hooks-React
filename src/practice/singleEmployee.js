@@ -27,13 +27,13 @@ function Datafetching() {
             if (document.getElementById("valueid").value < 6)
                 setid(document.getElementById("valueid").value)
         }
-
     }
+    
     return (
 
         <div>
             <h1>Page</h1>
-            <input type="text" id='valueid' onChange={changeid} />
+        <input type="text" id='valueid' onChange={changeid} />
 
             <h1>{id}</h1>
             <div>
@@ -44,25 +44,9 @@ function Datafetching() {
             <div>
                 <h1>{posts[1].first_name}</h1>
                 <p>Email : {posts[1].email}</p>
-            </div>
+            </div> 
             {/* <input type="text" id='valueid' value={employeeid} onChange={e => setemployeeid(e.target.value)} /> */}
-            {/*              
-                    <div>
-                        <h1>{posts[1].first_name}</h1>
-                        <p>Email : {posts[1].email}</p>
-                    </div> */}
-
-
-            {/* <Datafetching2 employeeset={posts}/> */}
-            {/* <button onClick={change}>Load</button> */}
-            {/* {posts.map((item) => (
-
-                
-            ))} */}
-            {/* <div key={id}>
-                    
-<h1>{posts.email}</h1>
-                </div>   */}
+            
         </div>
 
     )
